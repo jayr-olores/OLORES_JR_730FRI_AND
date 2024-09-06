@@ -47,7 +47,7 @@
         <Button android:id="@+id/btn4" android:text="4" style="@style/ButtonStyle"/>
         <Button android:id="@+id/btn5" android:text="5" style="@style/ButtonStyle"/>
         <Button android:id="@+id/btn6" android:text="6" style="@style/ButtonStyle"/>
-        <Button android:id="@+id/btnSubtract" android:text="−" style="@style/ButtonStyle"/>
+        <Button android:id="@+id/btnSubtract" android:text="-" style="@style/ButtonStyle"/>
 
         <Button android:id="@+id/btn1" android:text="1" style="@style/ButtonStyle"/>
         <Button android:id="@+id/btn2" android:text="2" style="@style/ButtonStyle"/>

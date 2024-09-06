@@ -1,6 +1,7 @@
 package com.firstactivity.calculator;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +10,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvCalculation, tvResult;
     private StringBuilder currentInput = new StringBuilder();
-    private String operator = "";
     private double firstNumber = 0.0;
+    private double secondNumber = 0.0;
+    private String operator = "";
     private boolean operatorSelected = false;
 
     @Override
@@ -48,23 +50,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onNumberClicked(View view) {
+        if (operatorSelected && currentInput.length() == 0) {
+            currentInput.append(firstNumber).append(" ").append(operator).append(" ");
+        }
         TextView button = (TextView) view;
         currentInput.append(button.getText().toString());
         tvCalculation.setText(currentInput.toString());
     }
 
     private void onOperatorClicked(View view) {
-        if (currentInput.length() > 0) {
-            if (!operatorSelected) {
+        if (currentInput.length() > 0 && !operatorSelected) {
+            // Parse first number from the current input
+            try {
                 firstNumber = Double.parseDouble(currentInput.toString());
-                operator = ((TextView) view).getText().toString();
-                currentInput.append(" " + operator + " ");
-                operatorSelected = true;
-            } else {
-                operator = ((TextView) view).getText().toString();
-                currentInput.setCharAt(currentInput.length() - 2, operator.charAt(0));
+            } catch (NumberFormatException e) {
+                tvResult.setText("Error");
+                return;
             }
+
+            // Log the first number for debugging
+            Log.d("CalculatorDebug", "First number: " + firstNumber);
+
+            // Set the operator and update the input display
+            operator = ((TextView) view).getText().toString();
+            currentInput.append(" ").append(operator).append(" ");
+            operatorSelected = true;
             tvCalculation.setText(currentInput.toString());
+
+            // Log the selected operator for debugging
+            Log.d("CalculatorDebug", "Operator: " + operator);
         }
     }
 
@@ -72,31 +86,53 @@ public class MainActivity extends AppCompatActivity {
         if (operatorSelected && currentInput.length() > 0) {
             String[] tokens = currentInput.toString().split(" ");
             if (tokens.length == 3) {
-                double secondNumber = Double.parseDouble(tokens[2]);
-                double result = 0.0;
-                switch (operator) {
-                    case "+":
-                        result = firstNumber + secondNumber;
-                        break;
-                    case "-":
-                        result = firstNumber - secondNumber;
-                        break;
-                    case "×":
-                        result = firstNumber * secondNumber;
-                        break;
-                    case "÷":
-                        if (secondNumber != 0) {
-                            result = firstNumber / secondNumber;
-                        } else {
-                            tvResult.setText("Error");
-                            return;
-                        }
-                        break;
+                try {
+                    // Parse the second number
+                    secondNumber = Double.parseDouble(tokens[2]);
+
+                    // Log the second number for debugging
+                    Log.d("CalculatorDebug", "Second number: " + secondNumber);
+
+                    double result = 0.0;
+
+                    // Log the operator before performing the operation
+                    Log.d("CalculatorDebug", "Operator in calculation: " + operator);
+
+                    // Perform the calculation based on the operator
+                    switch (operator) {
+                        case "+":
+                            result = firstNumber + secondNumber;
+                            break;
+                        case "-":
+                            result = firstNumber - secondNumber;
+                            break;
+                        case "×":
+                            result = firstNumber * secondNumber;
+                            break;
+                        case "÷":
+                            if (secondNumber != 0) {
+                                result = firstNumber / secondNumber;
+                            } else {
+                                tvResult.setText("Error");
+                                return;
+                            }
+                            break;
+                        default:
+                            Log.d("CalculatorDebug", "Unknown operator: " + operator);
+                            break;
+                    }
+
+                    // Log the result for debugging
+                    Log.d("CalculatorDebug", "Result: " + result);
+
+                    // Display the result and update the input for further calculations
+                    tvResult.setText(String.format("%.2f", result));
+                    currentInput.setLength(0);
+                    currentInput.append(result);
+                    operatorSelected = false;
+                } catch (NumberFormatException e) {
+                    tvResult.setText("Error");
                 }
-                tvResult.setText(String.format("%.2f", result));
-                currentInput.setLength(0);
-                currentInput.append(result);
-                operatorSelected = false;
             }
         }
     }
