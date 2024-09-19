@@ -1,5 +1,35 @@
 <resources>
     <string name="app_name">News</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="headlines_array">
+        <item>AI Technology Set to Revolutionize Healthcare</item>
+        <item>Global Climate Summit Highlights Urgent Need for Action</item>
+        <item>Breakthrough in Quantum Computing Announced</item>
+        <item>New Study Reveals Trends in Remote Work Preferences</item>
+        <item>Tech Giants Collaborate on Developing Next-Generation VR Headsets</item>
+    </string-array>
+
+    <string-array name="content_array">
+        <item>Artificial Intelligence (AI) is poised to transform the healthcare industry by enhancing diagnostic accuracy, personalizing treatment plans, and streamlining administrative processes. Recent advancements in machine learning and natural language processing are enabling AI systems to analyze medical data with unprecedented precision, leading to earlier disease detection and improved patient outcomes.</item>
+        <item>World leaders gathered at the Global Climate Summit in Paris to address the escalating climate crisis. The summit focused on increasing commitments to reduce carbon emissions, transitioning to renewable energy sources, and implementing sustainable practices. Experts emphasized the need for immediate action to prevent catastrophic climate changes and ensure a sustainable future for coming generations.</item>
+        <item>Researchers at the International Quantum Computing Institute have achieved a significant milestone in quantum computing. The new quantum processor demonstrates unprecedented computational power, capable of solving complex problems that were previously deemed infeasible. This breakthrough could pave the way for advancements in fields such as cryptography, materials science, and artificial intelligence.</item>
+        <item>A recent study conducted by the Workforce Research Institute has revealed changing trends in remote work preferences among employees. The study highlights a growing desire for flexible work arrangements and emphasizes the importance of work-life balance. Employers are encouraged to adapt to these trends by offering more remote work options and investing in technology to support virtual collaboration.</item>
+        <item>Leading technology companies have announced a collaborative effort to develop next-generation virtual reality (VR) headsets. The new headsets aim to deliver enhanced visual and sensory experiences, making virtual environments more immersive and interactive. This collaboration signifies a major leap forward in VR technology, with potential applications in gaming, education, and training.</item>
+    </string-array>
+
+    <string-array name="dates_array">
+        <item>September 19, 2024</item>
+        <item>September 18, 2024</item>
+        <item>September 17, 2024</item>
+        <item>September 16, 2024</item>
+        <item>September 15, 2024</item>
+    </string-array>
+
+    <string-array name="authors_array">
+        <item>Emily Roberts</item>
+        <item>Mark Thompson</item>
+        <item>Laura Chen</item>
+        <item>David Lee</item>
+        <item>Sarah Wilson</item>
+    </string-array>
 </resources>

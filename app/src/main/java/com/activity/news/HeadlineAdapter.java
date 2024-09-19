@@ -10,17 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-// HeadlineAdapter.java
 public class HeadlineAdapter extends RecyclerView.Adapter<HeadlineAdapter.HeadlineViewHolder> {
 
-    private final List<String> headlines;
+    private final List<Headline> headlines;
     private final OnHeadlineClickListener clickListener;
 
     public interface OnHeadlineClickListener {
-        void onHeadlineClick(String headline);
+        void onHeadlineClick(Headline headline);
     }
 
-    public HeadlineAdapter(List<String> headlines, OnHeadlineClickListener clickListener) {
+    public HeadlineAdapter(List<Headline> headlines, OnHeadlineClickListener clickListener) {
         this.headlines = headlines;
         this.clickListener = clickListener;
     }
@@ -35,8 +34,10 @@ public class HeadlineAdapter extends RecyclerView.Adapter<HeadlineAdapter.Headli
 
     @Override
     public void onBindViewHolder(@NonNull HeadlineViewHolder holder, int position) {
-        String headline = headlines.get(position);
-        holder.textHeadline.setText(headline);
+        Headline headline = headlines.get(position);
+        holder.textHeadline.setText(headline.getTitle());
+        holder.textDate.setText(headline.getDate());
+        holder.textAuthor.setText(headline.getAuthor());
         holder.itemView.setOnClickListener(v -> clickListener.onHeadlineClick(headline));
     }
 
@@ -47,11 +48,14 @@ public class HeadlineAdapter extends RecyclerView.Adapter<HeadlineAdapter.Headli
 
     static class HeadlineViewHolder extends RecyclerView.ViewHolder {
         TextView textHeadline;
+        TextView textDate;
+        TextView textAuthor;
 
         HeadlineViewHolder(@NonNull View itemView) {
             super(itemView);
             textHeadline = itemView.findViewById(R.id.text_headline);
+            textDate = itemView.findViewById(R.id.text_date);
+            textAuthor = itemView.findViewById(R.id.text_author);
         }
     }
 }
-

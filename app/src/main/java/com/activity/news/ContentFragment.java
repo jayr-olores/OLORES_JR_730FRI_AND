@@ -1,6 +1,5 @@
-// ContentFragment.java
 package com.activity.news;
-// Import necessary packages
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +17,28 @@ public class ContentFragment extends Fragment {
 
         Bundle args = getArguments();
         if (args != null) {
-            String headlineData = args.getString("headline_key");
+            String headlineTitle = args.getString("headline_title");
+            String date = args.getString("headline_date");
+            String author = args.getString("headline_author");
+            String contentData = args.getString("headline_content");
+
+            TextView headlineView = view.findViewById(R.id.text_headline);
+            TextView dateView = view.findViewById(R.id.text_date);
+            TextView authorView = view.findViewById(R.id.text_author);
             TextView contentView = view.findViewById(R.id.text_content);
-            contentView.setText(headlineData);
+
+            if (headlineTitle != null) {
+                headlineView.setText(headlineTitle);
+            }
+            if (date != null) {
+                dateView.setText(date);
+            }
+            if (author != null) {
+                authorView.setText(author);
+            }
+            if (contentData != null) {
+                contentView.setText(contentData);
+            }
         }
 
         return view;

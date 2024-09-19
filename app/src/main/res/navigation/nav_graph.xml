@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,8 +7,7 @@
     <fragment
         android:id="@+id/headlineFragment"
         android:name="com.activity.news.HeadlineFragment"
-        android:label="Headlines"
-        tools:layout="@layout/fragment_headline_list">
+        android:label="Headline Fragment">
         <action
             android:id="@+id/action_headlineFragment_to_contentFragment"
             app:destination="@id/contentFragment" />
@@ -18,6 +16,6 @@
     <fragment
         android:id="@+id/contentFragment"
         android:name="com.activity.news.ContentFragment"
-        android:label="Content"
-        tools:layout="@layout/fragment_content" />
+        android:label="Content Fragment" />
+
 </navigation>
