@@ -90,7 +90,7 @@
             style="@style/ButtonStyle"/>
         <Button
             android:id="@+id/btnSubtract"
-            android:text="−"
+            android:text="-"
             style="@style/ButtonStyle"/>
 
         <Button
