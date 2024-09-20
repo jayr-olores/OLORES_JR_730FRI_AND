@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_fragment"
+        android:title="Go to Fragment"/>
+    <item
+        android:id="@+id/menu_dialog"
+        android:title="Show Dialog"/>
+    <item
+        android:id="@+id/menu_exit"
+        android:title="Exit App"/>
+</menu>
