@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Menu" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Menu" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Allow content to be drawn behind the status bar -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
-    <style name="Theme.Menu" parent="Base.Theme.Menu" />
+    <!-- Inherit from Base.Menu -->
+    <style name="Theme.Menu" parent="Base.Menu" />
 </resources>
