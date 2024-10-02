@@ -73,14 +73,14 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            popupMenu.setOnMenuItemClickListener(item -> handleMenuItemClick(item));
+            // Handle menu item clicks
+            popupMenu.setOnMenuItemClickListener(item -> handleMenuItemClick(item, menuButton));
             popupMenu.show();
         });
-
     }
 
     // Method to handle menu item clicks
-    private boolean handleMenuItemClick(MenuItem item) {
+    private boolean handleMenuItemClick(MenuItem item, View anchor) {
         String title = item.getTitle().toString();
         switch (title) {
             case "Go to Fragment":
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case "Exit App":
                 // Show confirmation popup menu to exit the app
-                showExitPopupMenu();
+                showExitPopupMenu(anchor); // Pass the correct anchor view
                 return true;
             default:
                 return false;
@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Show the PopupWindow below the original menu button
-        exitPopupWindow.showAsDropDown(anchor, 0, 0); // Adjust the positioning here if necessary
+        exitPopupWindow.showAsDropDown(anchor, 0, 20); // Adjust positioning with x, y offsets
     }
 }
-
