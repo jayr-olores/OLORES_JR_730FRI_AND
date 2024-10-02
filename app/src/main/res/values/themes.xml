@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+    <style name="Base.Theme._0927_Navigation" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Allow content to be drawn behind the status bar -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="Theme._0927_Navigation" parent="Base.Theme._0927_Navigation" />
+</resources>
